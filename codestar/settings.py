@@ -52,12 +52,15 @@ INSTALLED_APPS = [
     'cloudinary',
     "django_summernote",
     'blog',
+    'crispy_forms',
 ]
 
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CRIPSY_TEMPLATE_PACK = 'bootstrap4'
 
 
 MIDDLEWARE = [
