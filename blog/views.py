@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -44,6 +45,7 @@ class PostDetail(View):
             liked = True
 
         comment_form = CommentForm(data=request.POST)
+        messages.add_message(request, messages.INFO, 'Successful Comment Request!')
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
